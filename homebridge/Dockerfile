@@ -26,7 +26,7 @@ RUN \
         node-gyp \
         homebridge@0.4.38 \
         homebridge-homeassistant@3.1.0 \
-        homebridge-camera-ffmpeg@0.1.7 \
+        homebridge-camera-ffmpeg@0.1.8 \
     \
     && apk del --purge .build-dependencies
 
