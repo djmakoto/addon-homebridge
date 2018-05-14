@@ -1,31 +1,32 @@
-ARG BUILD_FROM=hassioaddons/base-amd64:1.3.3
+ARG BUILD_FROM=hassioaddons/base-amd64:1.4.1
+# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        avahi-dev \
-        g++ \
-        libffi-dev \
-        make \
-        openssl-dev \
-        python \
+        avahi-dev=0.6.32-r4 \
+        g++=6.4.0-r5 \
+        libffi-dev=3.2.1-r4 \
+        make=4.2.1-r0 \
+        openssl-dev=1.0.2o-r0 \
+        python2=2.7.14-r2 \
     \
     && apk add --no-cache \
-        avahi \
-        avahi-compat-libdns_sd \
-        dbus \
-        git \
-        nodejs \
-        nodejs-npm \
+        avahi=0.6.32-r4 \
+        avahi-compat-libdns_sd=0.6.32-r4 \
+        dbus=1.10.24-r0 \
+        git=2.15.0-r1 \
+        nodejs=8.9.3-r1 \
+        nodejs-npm=8.9.3-r1 \
         ffmpeg \
     \
     && npm set unsafe-perm true \
     \
     && npm -g install \
-        node-gyp \
-        homebridge \
-        homebridge-homeassistant \
+        node-gyp@3.6.2 \
+        homebridge@0.4.42 \
+        homebridge-homeassistant@3.1.0 \
         homebridge-camera-ffmpeg \
     \
     && apk del --purge .build-dependencies
@@ -54,5 +55,5 @@ LABEL \
     org.label-schema.url="https://community.home-assistant.io/t/community-hass-io-add-on-homebridge/33803?u=frenck" \
     org.label-schema.usage="https://github.com/hassio-addons/addon-homebridge/tree/master/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/zoranke/addon-homebridge" \
+    org.label-schema.vcs-url="https://github.com/hassio-addons/addon-homebridge" \
     org.label-schema.vendor="Community Hass.io Add-ons"
