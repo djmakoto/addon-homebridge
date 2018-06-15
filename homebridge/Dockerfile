@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base-amd64:1.4.1
+ARG BUILD_FROM=hassioaddons/base-amd64:1.4.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -16,7 +16,7 @@ RUN \
         avahi=0.6.32-r4 \
         avahi-compat-libdns_sd=0.6.32-r4 \
         dbus=1.10.24-r0 \
-        git=2.15.0-r1 \
+        git=2.15.2-r0 \
         nodejs=8.9.3-r1 \
         nodejs-npm=8.9.3-r1 \
         ffmpeg \
@@ -24,8 +24,8 @@ RUN \
     && npm set unsafe-perm true \
     \
     && npm -g install \
-        node-gyp@3.6.2 \
-        homebridge@0.4.42 \
+        node-gyp@3.7.0 \
+        homebridge@0.4.43 \
         homebridge-homeassistant@3.1.0 \
         homebridge-camera-ffmpeg \
     \
